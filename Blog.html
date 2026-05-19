@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Guides & Tips — TBS Union | Licensed Moneylender Singapore</title>
+  <link rel="preload" as="font" type="font/ttf" href="design-system/fonts/Vollkorn-VariableFont_wght.ttf" crossorigin>
+  <link rel="preload" as="font" type="font/ttf" href="design-system/fonts/Inter-VariableFont_opsz_wght.ttf" crossorigin>
+  <style>
+    @font-face { font-family: 'Vollkorn'; src: url('design-system/fonts/Vollkorn-VariableFont_wght.ttf') format('truetype-variations'); font-weight: 400 900; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Vollkorn'; src: url('design-system/fonts/Vollkorn-Italic-VariableFont_wght.ttf') format('truetype-variations'); font-weight: 400 900; font-style: italic; font-display: swap; }
+    @font-face { font-family: 'Inter'; src: url('design-system/fonts/Inter-VariableFont_opsz_wght.ttf') format('truetype-variations'); font-weight: 100 900; font-style: normal; font-display: swap; }
+    html { visibility: hidden; }
+    html.fonts-ready { visibility: visible; }
+  </style>
+  <link rel="stylesheet" href="styles/homepage.css">
+  <link rel="stylesheet" href="styles/pages.css">
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    (function() {
+      var reveal = function() { document.documentElement.classList.add('fonts-ready'); };
+      if (document.fonts && document.fonts.ready) { document.fonts.ready.then(reveal); } else { reveal(); }
+      setTimeout(reveal, 300);
+    })();
+  </script>
+  <script type="text/babel" src="components/chrome.jsx"></script>
+  <script type="text/babel" src="components/blog-page.jsx"></script>
+  <script type="text/babel">
+    ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(BlogApp));
+  </script>
+</body>
+</html>

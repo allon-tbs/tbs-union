@@ -1,0 +1,196 @@
+/* calculator-page.jsx — Personal Loan Calculator */
+
+function LoanCalculator() {
+  const [amount, setAmount] = React.useState(30000);
+  const [termMonths, setTermMonths] = React.useState(12);
+  const [ratePerAnnum, setRatePerAnnum] = React.useState(4);
+
+  const monthlyRate = ratePerAnnum / 12 / 100;
+  const totalInterest = amount * (ratePerAnnum / 100) * (termMonths / 12);
+  const totalPayable = amount + totalInterest;
+  const monthlyRepayment = totalPayable / termMonths;
+
+  const formatCurrency = (n) => 'S$' + n.toLocaleString('en-SG', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+  const amountPct = ((amount - 1000) / (200000 - 1000)) * 100;
+  const termPct = ((termMonths - 1) / (24 - 1)) * 100;
+  const ratePct = ((ratePerAnnum - 3) / (6 - 3)) * 100;
+
+  return (
+    <section className="calc-section">
+      <div className="container">
+        <div className="calc-layout">
+          <div className="calc-panel">
+            <div className="calc-group">
+              <div className="calc-group__header">
+                <label>Loan amount</label>
+                <span className="calc-group__value">{formatCurrency(amount)}</span>
+              </div>
+              <input
+                type="range"
+                min="1000"
+                max="200000"
+                step="1000"
+                value={amount}
+                onChange={e => setAmount(Number(e.target.value))}
+                className="calc-slider"
+                style={{ '--pct': amountPct + '%' }}
+              />
+              <div className="calc-range-labels">
+                <span>S$1,000</span>
+                <span>S$200,000</span>
+              </div>
+            </div>
+
+            <div className="calc-group">
+              <div className="calc-group__header">
+                <label>Loan term</label>
+                <span className="calc-group__value">{termMonths} {termMonths === 1 ? 'month' : 'months'}</span>
+              </div>
+              <input
+                type="range"
+                min="1"
+                max="24"
+                step="1"
+                value={termMonths}
+                onChange={e => setTermMonths(Number(e.target.value))}
+                className="calc-slider"
+                style={{ '--pct': termPct + '%' }}
+              />
+              <div className="calc-range-labels">
+                <span>1 month</span>
+                <span>24 months</span>
+              </div>
+            </div>
+
+            <div className="calc-group">
+              <div className="calc-group__header">
+                <label>Interest rate (per annum)</label>
+                <span className="calc-group__value">{ratePerAnnum.toFixed(1)}%</span>
+              </div>
+              <input
+                type="range"
+                min="3"
+                max="6"
+                step="0.1"
+                value={ratePerAnnum}
+                onChange={e => setRatePerAnnum(Number(e.target.value))}
+                className="calc-slider"
+                style={{ '--pct': ratePct + '%' }}
+              />
+              <div className="calc-range-labels">
+                <span>3.0%</span>
+                <span>6.0%</span>
+              </div>
+            </div>
+
+            <p className="calc-disclaimer">
+              * This calculator provides indicative estimates only. Actual rates and terms are determined after assessment. All fees and charges will be disclosed in your offer letter.
+            </p>
+          </div>
+
+          <div className="calc-results">
+            <h3>Your estimated repayment</h3>
+            <div className="calc-results__grid">
+              <div className="calc-result-card calc-result-card--primary">
+                <span className="calc-result-card__label">Monthly repayment</span>
+                <span className="calc-result-card__value">{formatCurrency(monthlyRepayment)}</span>
+              </div>
+              <div className="calc-result-card">
+                <span className="calc-result-card__label">Total interest</span>
+                <span className="calc-result-card__value">{formatCurrency(totalInterest)}</span>
+              </div>
+              <div className="calc-result-card">
+                <span className="calc-result-card__label">Total payable</span>
+                <span className="calc-result-card__value">{formatCurrency(totalPayable)}</span>
+              </div>
+            </div>
+
+            <div className="calc-breakdown">
+              <h4>Breakdown</h4>
+              <div className="calc-bar">
+                <div className="calc-bar__principal" style={{ width: (amount / totalPayable * 100) + '%' }}></div>
+                <div className="calc-bar__interest" style={{ width: (totalInterest / totalPayable * 100) + '%' }}></div>
+              </div>
+              <div className="calc-bar-legend">
+                <span><span className="calc-dot calc-dot--principal"></span> Principal: {formatCurrency(amount)}</span>
+                <span><span className="calc-dot calc-dot--interest"></span> Interest: {formatCurrency(totalInterest)}</span>
+              </div>
+            </div>
+
+            <a href="Contact.html" className="btn btn-lg btn--we calc-cta">Get a free assessment</a>
+            <p className="calc-results__note">No obligation. We'll respond within one business day.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CalculatorApp() {
+  return (
+    <React.Fragment>
+      <Nav tweaks={{}} page="calculator" />
+      <header className="page-header">
+        <div className="container">
+          <span className="overline overline--soft">Tools</span>
+          <h1>Personal Loan Calculator</h1>
+          <p className="page-header__desc">
+            Estimate your monthly repayments and total cost. Adjust the sliders to see how different loan amounts, terms, and rates affect your repayment.
+          </p>
+        </div>
+      </header>
+      <LoanCalculator />
+      <CalculatorFaq />
+      <CtaBanner tweaks={{ ctaStyle: 'emerald-on-white' }} />
+      <ComplianceStrip />
+      <Footer />
+    </React.Fragment>
+  );
+}
+
+function CalculatorFaq() {
+  const faqs = [
+    {
+      q: 'How is the monthly repayment calculated?',
+      a: 'This calculator uses a simple interest model: Total Interest = Loan Amount × Monthly Rate × Number of Months. The monthly repayment is the total payable divided evenly across all months. Actual loan structures may differ.',
+    },
+    {
+      q: 'Are there any fees not shown here?',
+      a: 'Licensed moneylenders may charge an administrative fee (typically up to 10% of the loan principal) and a late payment fee if applicable. All fees will be fully disclosed in your offer letter before you sign.',
+    },
+    {
+      q: 'What interest rates does TBS Union charge?',
+      a: 'Rates are determined after a full assessment of your profile and property collateral. Because our loans are property-backed, we can typically offer more competitive rates than unsecured personal loans. Contact us for an indicative quote.',
+    },
+    {
+      q: 'Can I repay my loan early?',
+      a: 'Early repayment terms are set out in your loan agreement. Speak to our team to understand the specific terms that would apply to your loan.',
+    },
+  ];
+
+  const [openIdx, setOpenIdx] = React.useState(null);
+
+  return (
+    <section className="calc-faq">
+      <div className="container" style={{ maxWidth: 780 }}>
+        <h2>Frequently asked questions</h2>
+        <div className="calc-faq__list">
+          {faqs.map((f, i) => (
+            <div key={i} className={'faq-item' + (openIdx === i ? ' active' : '')}>
+              <button className="faq-question" onClick={() => setOpenIdx(openIdx === i ? null : i)}>
+                {f.q}
+                <svg className="faq-question__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </button>
+              <div className="faq-answer" style={{ maxHeight: openIdx === i ? 300 : 0 }}>
+                <div className="faq-answer__inner"><p>{f.a}</p></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+Object.assign(window, { CalculatorApp });
