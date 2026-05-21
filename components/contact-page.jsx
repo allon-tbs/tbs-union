@@ -111,7 +111,7 @@ function ContactDetails() {
         </div>
         <div className="detail-card__content">
           <h4>Operating Hours</h4>
-          <p>Monday – Friday: 9:00 AM – 6:00 PM<br />Saturday, Sunday &amp; Public Holidays: Closed</p>
+          <p>Monday – Friday: By Appointment Only <a href="https://api.whatsapp.com/send/?phone=6588375425&text=Hello%21+I%27d+like+to+know+more+about+personal+loans" target="_blank" rel="noopener" className="whatsapp-tag">WhatsApp Us</a><br />Saturday, Sunday &amp; Public Holidays: Closed</p>
         </div>
       </div>
 
@@ -126,7 +126,7 @@ function ContactDetails() {
 
       <div className="contact-map">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7338!2d103.8930!3d1.3280!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da17e5a5e1a5e1%3A0x1234567890abcdef!2s61+Ubi+Ave+2%2C+Singapore+408898!5e0!3m2!1sen!2ssg!4v1"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7338!2d103.8930!3d1.3280!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da181a6e736897%3A0x2e620c5b1eb8722b!2sAutomobile+Megamart!5e0!3m2!1sen!2ssg!4v1"
           allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"

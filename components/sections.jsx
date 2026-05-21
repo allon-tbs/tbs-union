@@ -38,8 +38,7 @@ function AboutSection() {
             <h2>A Licensed Moneylender You Can Trust</h2>
             <p>
               TBS Union Pte Ltd is a licensed moneylender regulated by the Ministry of Law (MinLaw)
-              under the Moneylenders Act. We specialise in <strong>property-backed personal loans</strong> —
-              designed for individuals who need financing that looks beyond just a credit score.
+              under the Moneylenders Act. We specialise in <strong>property-backed personal loans</strong> for individuals who need financing that looks beyond just a credit score.
             </p>
             <p>
               We are a subsidiary of{' '}
@@ -48,9 +47,11 @@ function AboutSection() {
               more than $1 billion across property, business, and vehicle financing.
             </p>
             <p>
-              Whether you've been declined by a bank, have a complex income structure, or simply need
-              access to capital without the weeks of waiting — we assess your situation with a human touch,
-              not just an algorithm.
+              Been declined by a bank, or have a complex income structure? We assess
+              your situation with a human touch, not just an algorithm.
+            </p>
+            <p style={{ marginTop: 8 }}>
+              <a href="#scam-advisory" style={{ fontSize: 14 }}>Read Scam Advisory ↓</a>
             </p>
           </div>
           <div className="about__stats">
@@ -207,7 +208,6 @@ function UseCasesSection() {
     { icon: <LayersIcon />, title: 'Debt Consolidation', desc: 'Combine multiple debts into one loan with potentially lower interest. Simplify your repayments and reduce overall cost.' },
     { icon: <ToolIcon />, title: 'Home Renovations', desc: 'Fund renovations or property improvements without depleting your savings or tapping into long-term investments.' },
     { icon: <BriefcaseIcon />, title: 'Bridging an Income Gap', desc: 'Cover a short-term shortfall between jobs, during a career transition, or while waiting on business proceeds.' },
-    { icon: <BookIcon />, title: 'Education or Training', desc: 'Invest in professional development or education without sacrificing liquidity you need elsewhere.' },
     { icon: <ZapIcon />, title: 'Time-Sensitive Needs', desc: 'When you need financing faster than a bank can move — medical expenses, family obligations, or urgent personal matters.' },
     { icon: <KeyIcon />, title: 'Unlocking Property Equity', desc: 'Your property holds value you can deploy. Access capital tied up in your asset without selling it.' },
   ];
@@ -237,7 +237,7 @@ function UseCasesSection() {
 /* ─── Process Section ─── */
 function ProcessSection() {
   const steps = [
-    { num: '1', title: '15-Minute Assessment', desc: 'Call us or submit an enquiry. Share your property address (for valuation), and how much you need.' },
+    { num: '1', title: 'Online Assessment', desc: 'Call us or submit an enquiry. Share your property address (for valuation), and how much you need.' },
     { num: '2', title: 'Loan Structuring', desc: 'Once your documents are submitted, we design a solution around your timeline, needs & objectives.' },
     { num: '3', title: 'Approval & Disbursement', desc: 'Get approval in hours, and funds disbursed within the week. No hidden charges.' },
   ];
@@ -258,6 +258,56 @@ function ProcessSection() {
               <p>{s.desc}</p>
             </div>
           ))}
+        </div>
+        <div style={{ textAlign: 'center', marginTop: 40 }}>
+          <a href="Contact.html" className="btn btn-lg btn--we">Send an Enquiry</a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── Scam Advisory Section ─── */
+function AlertTriangleIcon() {
+  return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>;
+}
+
+function ScamAdvisorySection() {
+  return (
+    <section className="scam-advisory" id="scam-advisory">
+      <div className="container">
+        <div className="scam-advisory__inner">
+          <div className="scam-advisory__header">
+            <span className="scam-advisory__badge"><AlertTriangleIcon /> Scam Advisory</span>
+            <h3>Protect Yourself from Fraudulent Websites</h3>
+            <p>
+              We have identified a website impersonating TBS Union. This site is <strong>not affiliated</strong> with us in any way.
+            </p>
+          </div>
+          <div className="scam-advisory__content">
+            <div className="scam-advisory__fake-site">
+              <span className="scam-advisory__fake-label">Fraudulent website</span>
+              <div className="scam-advisory__url-box">
+                <span className="scam-advisory__url-x">✕</span>
+                <code>https://tbsunion-sg.com/</code>
+              </div>
+              <div className="scam-advisory__screenshot">
+                <img src="assets/scam/fake-site-screenshot.jpg" alt="Screenshot of fraudulent website impersonating TBS Union" />
+                <div className="scam-advisory__fake-stamp">FAKE</div>
+              </div>
+            </div>
+            <div className="scam-advisory__points">
+              <span className="scam-advisory__real-label">Remember</span>
+              <ul>
+                <li>Our only official website is <strong>tbsunion.com.sg</strong></li>
+                <li>We do not send unsolicited SMS, WhatsApp messages, or cold calls</li>
+                <li>We will never ask for payment before loan disbursement</li>
+              </ul>
+              <p className="scam-advisory__verify">
+                Always verify our licence on the <a href="https://rom.mlaw.gov.sg/information-for-borrowers/list-of-licensed-moneylenders-in-singapore/" target="_blank" rel="noopener">MinLaw Registry</a> before engaging with any moneylender.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -293,5 +343,5 @@ function CtaBanner({ tweaks }) {
 
 Object.assign(window, {
   AboutSection, ProductSection, WhySection,
-  UseCasesSection, ProcessSection, CtaBanner,
+  UseCasesSection, ProcessSection, ScamAdvisorySection, CtaBanner,
 });

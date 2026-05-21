@@ -160,6 +160,25 @@
 .detail-card__content a:hover { text-decoration: underline; }
 .detail-note { font-size: 13px !important; color: var(--text-muted) !important; margin-top: 4px; }
 
+.detail-card__content a.whatsapp-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--emerald);
+  background: var(--pale-green);
+  padding: 4px 11px;
+  border-radius: var(--radius-sm);
+  margin-left: 8px;
+  text-decoration: none;
+  vertical-align: middle;
+  line-height: 1.2;
+  transition: background var(--dur-base) var(--ease-standard);
+}
+.detail-card__content a.whatsapp-tag:hover { background: #a0d9c5; text-decoration: none; }
+
 .contact-map {
   margin-top: 36px;
   border-radius: var(--radius-lg);

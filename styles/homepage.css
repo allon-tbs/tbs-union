@@ -8,7 +8,7 @@
 img { max-width: 100%; height: auto; display: block; }
 a { text-decoration: none; }
 ul { list-style: none; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
 
 /* --- Tokens --- */
 :root {
@@ -772,6 +772,163 @@ h4 { font-size: 18px; font-weight: 600; }
 }
 .step h4 { color: var(--charcoal); margin-bottom: 10px; font-family: var(--font-sans); font-weight: 600; }
 .step p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; max-width: 280px; margin: 0 auto; }
+
+/* ═══════════════════════════════════════
+   SCAM ADVISORY
+   ═══════════════════════════════════════ */
+.scam-advisory { padding: 72px 0; background: var(--white); border-top: 1px solid var(--border-light); }
+.scam-advisory__inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.scam-advisory__header { margin-bottom: 32px; }
+.scam-advisory__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid #fecaca;
+  margin-bottom: 16px;
+}
+.scam-advisory__badge svg { width: 16px; height: 16px; stroke: #b91c1c; }
+.scam-advisory__header h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 3vw, 28px);
+  color: var(--charcoal);
+  margin-bottom: 10px;
+}
+.scam-advisory__header p { color: var(--text-secondary); line-height: 1.7; font-size: 15px; }
+
+.scam-advisory__content {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 36px;
+  align-items: start;
+}
+
+/* Fake site callout */
+.scam-advisory__fake-site {}
+.scam-advisory__fake-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #b91c1c;
+  margin-bottom: 10px;
+}
+.scam-advisory__url-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin-bottom: 16px;
+}
+.scam-advisory__url-x {
+  color: #b91c1c;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.scam-advisory__url-box code {
+  font-size: 14px;
+  font-family: var(--font-sans);
+  color: #b91c1c;
+  font-weight: 600;
+  word-break: break-all;
+}
+.scam-advisory__screenshot {
+  position: relative;
+  max-width: 350px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.scam-advisory__screenshot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: grayscale(0.3) brightness(0.95);
+}
+.scam-advisory__fake-stamp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg);
+  font-family: var(--font-sans);
+  font-size: 56px;
+  font-weight: 900;
+  color: #dc2626;
+  opacity: 0.7;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  pointer-events: none;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* Points */
+.scam-advisory__real-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--emerald);
+  margin-bottom: 12px;
+}
+.scam-advisory__points ul {
+  list-style: none;
+  margin: 0 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.scam-advisory__points ul li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.scam-advisory__points ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--pale-green);
+  border: 2px solid var(--emerald);
+}
+.scam-advisory__points ul li strong { color: var(--charcoal); }
+.scam-advisory__verify {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+}
+.scam-advisory__verify a { color: var(--emerald); font-weight: 600; }
+.scam-advisory__verify a:hover { text-decoration: underline; }
+
+@media (max-width: 960px) {
+  .scam-advisory__content { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .scam-advisory__fake-stamp { font-size: 36px; }
+}
 
 /* ═══════════════════════════════════════
    CTA BANNER
