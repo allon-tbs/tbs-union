@@ -1,24 +1,12 @@
 /* sections.jsx — Body sections: About, Product, WhyUs, UseCases, Process, CtaBanner */
 
 /* ─── SVG icons for use-case cards ─── */
-function LayersIcon() {
-  return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>;
-}
-function ToolIcon() {
-  return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>;
-}
-function BriefcaseIcon() {
-  return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>;
-}
-function BookIcon() {
-  return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>;
-}
-function ZapIcon() {
-  return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>;
-}
-function KeyIcon() {
-  return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>;
-}
+function LayersIcon() { return <Icon src="assets/icons/homepage/layers.svg" size={20} />; }
+function ToolIcon() { return <Icon src="assets/icons/homepage/tool.svg" size={20} />; }
+function BriefcaseIcon() { return <Icon src="assets/icons/homepage/briefcase.svg" size={20} />; }
+function BookIcon() { return <Icon src="assets/icons/shared/book-nav.svg" size={20} />; }
+function ZapIcon() { return <Icon src="assets/icons/homepage/zap.svg" size={20} />; }
+function KeyIcon() { return <Icon src="assets/icons/homepage/key.svg" size={20} />; }
 
 /* ─── About Section ─── */
 function AboutSection() {
@@ -75,32 +63,32 @@ function ProductSection({ tweaks }) {
   const cardsCls = `cards--${tweaks.cardStyle}`;
   const features = [
     {
-      icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>,
+      icon: <Icon src="assets/icons/shared/home.svg" size={22} />,
       title: 'Property-Backed',
       desc: 'Use your private residential or commercial property as collateral. Property backing means higher loan amounts at more competitive rates.',
     },
     {
-      icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>,
+      icon: <Icon src="assets/icons/shared/clock.svg" size={22} />,
       title: 'Same-Day Assessment',
       desc: 'Submit your documents and receive an indicative assessment within the same business day. Funds disbursed within 24 hours of approval.',
     },
     {
-      icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>,
+      icon: <Icon src="assets/icons/shared/shield.svg" size={22} />,
       title: 'Transparent Terms',
       desc: 'All rates, fees, and repayment terms are fully disclosed in your offer letter before you sign. No hidden charges. No surprises.',
     },
     {
-      icon: <UsersIcon />,
+      icon: <Icon src="assets/icons/shared/users.svg" size={22} />,
       title: 'Direct Lender',
       desc: 'You deal with us directly — no brokers, no middlemen, no markup fees. Our team guides you from application to disbursement.',
     },
     {
-      icon: <DollarIcon />,
+      icon: <Icon src="assets/icons/shared/dollar-sign.svg" size={22} />,
       title: 'Competitive Rates',
       desc: 'Property collateral allows us to offer more competitive interest rates. Rates are quoted after assessment and disclosed in the offer letter.',
     },
     {
-      icon: <ActivityIcon />,
+      icon: <Icon src="assets/icons/shared/activity.svg" size={22} />,
       title: 'Flexible Assessment',
       desc: 'We assess your full financial picture — not just a credit score. Self-employed, variable income, or complex profiles are welcome.',
     },
@@ -269,7 +257,7 @@ function ProcessSection() {
 
 /* ─── Scam Advisory Section ─── */
 function AlertTriangleIcon() {
-  return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>;
+  return <Icon src="assets/icons/homepage/alert-triangle.svg" size={20} />;
 }
 
 function ScamAdvisorySection() {

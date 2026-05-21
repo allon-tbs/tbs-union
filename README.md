@@ -29,6 +29,7 @@ These are **high-fidelity (hifi)** mockups. All colors, typography, spacing, bor
 
 ### Shared Components (chrome.jsx)
 
+- **Icon** — Utility component that renders SVG files from `assets/icons/` via CSS `mask-image`. Supports `currentColor` inheritance for flexible coloring. All icons across the site use this component.
 - **Nav** — Fixed header (72px). Transparent on hero, solid `#063222` on scroll. Dropdown menu for "Resources". Mobile hamburger overlay. Yellow pill CTA for phone number.
 - **Footer** — Bottle Green (`#063222`) background. 3-column grid: brand description, quick links, contact info. Legal disclaimer + licence number below divider.
 - **ComplianceStrip** — Beige bar with MinLaw verification links. Appears above footer on all pages.
@@ -37,7 +38,7 @@ These are **high-fidelity (hifi)** mockups. All colors, typography, spacing, bor
 
 | File | Components Exported | Purpose |
 |------|---------------------|---------|
-| `components/chrome.jsx` | Nav, Footer, ComplianceStrip, PhoneIcon, ShieldIcon, HomeIcon, ClockIcon, UsersIcon, DollarIcon, ActivityIcon, CheckIcon, SendIcon | Shared chrome + icon library |
+| `components/chrome.jsx` | Icon, Nav, Footer, ComplianceStrip, PhoneIcon, ShieldIcon, HomeIcon, ClockIcon, UsersIcon, DollarIcon, ActivityIcon, CheckIcon, SendIcon | Shared Icon utility, chrome + icon library |
 | `components/hero.jsx` | HeroSection, TrustBadges | Hero with 3 layout variants + floating stat bubbles |
 | `components/sections.jsx` | AboutSection, ProductSection, WhySection, UseCasesSection, ProcessSection, ScamAdvisorySection, CtaBanner | Homepage body sections |
 | `components/app.jsx` | App | Homepage root with Tweaks integration |
@@ -79,7 +80,7 @@ These are **high-fidelity (hifi)** mockups. All colors, typography, spacing, bor
 
 **Floating Bubbles (hero media column):**
 - 5 glassmorphic bubble cards positioned absolutely around a rounded hero image
-- Each has icon (34×34), bold value label, and sublabel
+- Each has icon (18px, from assets/icons/), bold value label, and sublabel
 - Bubbles: "Same-Day / Assessment", "2,000+ / Deals Funded", "Property / Backed", "24-48hr / Disbursement", "Trusted / Licensed Lender"
 - Animation: `bubbleFadeIn` on load + `bubbleFloat` (gentle vertical oscillation, 6.2–7.0s cycle, staggered delays)
 - Background image: `assets/photography/hero-condo.jpg` in a 36px-radius rounded container with overlay
@@ -402,12 +403,41 @@ Three tweakable values stored in `TWEAK_DEFAULTS`:
 
 ## Iconography
 
-No icon library is used. All icons are **inline SVGs** drawn at 24×24 viewBox with **2px stroke** (some at 1.6px in dropdown), `strokeLinecap="round"`, `strokeLinejoin="round"`. All are defined as React components in `chrome.jsx` and `sections.jsx`.
+All icons are standalone **SVG files** in `assets/icons/`, organized by page. They are rendered via a shared `Icon` component (in `chrome.jsx`) that uses CSS `mask-image` to support `currentColor` inheritance — icons automatically adopt the parent element's `color` CSS property.
 
-Icon set used:
-- Phone, Shield, Home, Clock, Users, Dollar, Activity, Check, Send, ChevronDown, Plus, Layers, Tool, Briefcase, Book, Zap, Key, MapPin, ExternalLink, ChevronRight, AlertTriangle, Calculator (nav), Book (nav)
+If migrating to another framework, **Lucide** is the closest external icon library match (same 24×24 viewBox, 2px stroke, round caps/joins).
 
-If migrating, **Lucide** is the closest external match (same stroke style).
+### Icon Files
+
+```
+assets/icons/
+├── shared/              ← Used across all pages (nav, footer, feature cards, etc.)
+│   ├── phone.svg
+│   ├── shield.svg
+│   ├── home.svg
+│   ├── clock.svg
+│   ├── users.svg
+│   ├── dollar-sign.svg
+│   ├── activity.svg
+│   ├── check.svg
+│   ├── send.svg
+│   ├── chevron-down.svg
+│   ├── calculator-nav.svg
+│   └── book-nav.svg
+├── homepage/            ← Homepage use-case & scam advisory icons
+│   ├── layers.svg
+│   ├── tool.svg
+│   ├── briefcase.svg
+│   ├── zap.svg
+│   ├── key.svg
+│   └── alert-triangle.svg
+├── contact/             ← Contact page icons
+│   ├── external-link.svg
+│   ├── chevron-right.svg
+│   └── map-pin.svg
+└── faq/                 ← FAQ accordion toggle
+    └── plus.svg
+```
 
 ---
 
@@ -454,12 +484,13 @@ design_handoff_tbs_union_website/
 ├── Blog.html                              ← Blog listing page
 ├── Article.html                           ← Article detail page
 ├── assets/
+│   ├── icons/                             ← All SVG icons (organized by page)
 │   ├── logos/                             ← TBSU brand logos (SVG)
 │   ├── photography/                       ← Hero + background images
 │   ├── blog/                              ← Article thumbnail images
 │   └── scam/                              ← Scam advisory screenshot
 ├── components/
-│   ├── chrome.jsx                         ← Nav, Footer, ComplianceStrip, icons
+│   ├── chrome.jsx                         ← Icon utility, Nav, Footer, ComplianceStrip
 │   ├── hero.jsx                           ← Hero section + floating bubbles
 │   ├── sections.jsx                       ← Homepage body sections + scam advisory
 │   ├── app.jsx                            ← Homepage root component

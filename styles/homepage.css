@@ -490,7 +490,7 @@ h4 { font-size: 18px; font-weight: 600; }
   justify-content: center;
   flex-shrink: 0;
 }
-.hero--dark .hero-bubble__icon svg { color: var(--pale-green); }
+.hero--dark .hero-bubble__icon svg, .hero--dark .hero-bubble__icon span { color: var(--pale-green); }
 .hero--dark .hero-bubble__value {
   display: block;
   font-family: var(--font-serif);
@@ -523,7 +523,7 @@ h4 { font-size: 18px; font-weight: 600; }
   justify-content: center;
   flex-shrink: 0;
 }
-.hero--light .hero-bubble__icon svg { color: var(--emerald); }
+.hero--light .hero-bubble__icon svg, .hero--light .hero-bubble__icon span { color: var(--emerald); }
 .hero--light .hero-bubble__value {
   display: block;
   font-family: var(--font-serif);
@@ -568,20 +568,20 @@ h4 { font-size: 18px; font-weight: 600; }
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
-.trust-badge__icon svg { width: 16px; height: 16px; }
+.trust-badge__icon svg, .trust-badge__icon span { width: 16px; height: 16px; }
 
 /* Trust badges on dark */
 .hero--dark .trust-badge,
 .hero--bold .trust-badge { color: rgba(255,255,255,0.6); }
 .hero--dark .trust-badge__icon,
 .hero--bold .trust-badge__icon { background: rgba(185,228,212,0.12); }
-.hero--dark .trust-badge__icon svg,
-.hero--bold .trust-badge__icon svg { color: var(--pale-green); }
+.hero--dark .trust-badge__icon svg, .hero--dark .trust-badge__icon span,
+.hero--bold .trust-badge__icon svg, .hero--bold .trust-badge__icon span { color: var(--pale-green); }
 
 /* Trust badges on light */
 .hero--light .trust-badge { color: var(--text-secondary); }
 .hero--light .trust-badge__icon { background: rgba(0,90,61,0.08); }
-.hero--light .trust-badge__icon svg { color: var(--emerald); }
+.hero--light .trust-badge__icon svg, .hero--light .trust-badge__icon span { color: var(--emerald); }
 
 /* ═══════════════════════════════════════
    ABOUT SECTION
@@ -638,7 +638,7 @@ h4 { font-size: 18px; font-weight: 600; }
   margin-bottom: 20px;
   background: var(--pale-green);
 }
-.feature-card__icon svg { width: 22px; height: 22px; color: var(--emerald); }
+.feature-card__icon svg, .feature-card__icon span { width: 22px; height: 22px; color: var(--emerald); }
 .feature-card h4 { color: var(--charcoal); margin-bottom: 10px; font-family: var(--font-sans); font-weight: 600; }
 .feature-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
 
@@ -733,7 +733,7 @@ h4 { font-size: 18px; font-weight: 600; }
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 18px;
 }
-.uc-card__icon svg { width: 20px; height: 20px; color: var(--pale-green); }
+.uc-card__icon svg, .uc-card__icon span { width: 20px; height: 20px; color: var(--pale-green); }
 .uc-card h4 { color: var(--white); margin-bottom: 8px; font-size: 16px; font-family: var(--font-sans); font-weight: 600; }
 .uc-card p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6; }
 
@@ -797,7 +797,7 @@ h4 { font-size: 18px; font-weight: 600; }
   border: 1px solid #fecaca;
   margin-bottom: 16px;
 }
-.scam-advisory__badge svg { width: 16px; height: 16px; stroke: #b91c1c; }
+.scam-advisory__badge svg, .scam-advisory__badge span { width: 16px; height: 16px; color: #b91c1c; }
 .scam-advisory__header h3 {
   font-family: var(--font-serif);
   font-size: clamp(22px, 3vw, 28px);
@@ -990,8 +990,8 @@ h4 { font-size: 18px; font-weight: 600; }
   .hero--light .hero-bubble__value { font-size: 14px; }
   .hero--dark .hero-bubble__icon,
   .hero--light .hero-bubble__icon { width: 28px; height: 28px; }
-  .hero--dark .hero-bubble__icon svg,
-  .hero--light .hero-bubble__icon svg { width: 14px; height: 14px; }
+  .hero--dark .hero-bubble__icon svg, .hero--dark .hero-bubble__icon span,
+  .hero--light .hero-bubble__icon svg, .hero--light .hero-bubble__icon span { width: 14px; height: 14px; }
   .bubble--top-left     { top: 3%;  left: 2%; }
   .bubble--top-right    { top: 1%;  right: 1%; }
   .bubble--mid-left     { top: 40%; left: 0%; }
