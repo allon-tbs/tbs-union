@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is the complete marketing website for **TBS Union Pte Ltd**, a MinLaw-licensed moneylender in Singapore (subsidiary of Tembusu Financial Services). The site covers their property-backed personal loan product across 6 page types: Homepage, FAQ, Contact, Loan Calculator, Blog listing, and Article detail.
+Complete marketing website for **TBS Union Pte Ltd**, a MinLaw-licensed moneylender in Singapore (subsidiary of Tembusu Financial Services). The site covers their property-backed personal loan product across 6 page types: Homepage, FAQ, Contact, Loan Calculator, Blog listing, and Article detail.
 
 ## About the Design Files
 
@@ -20,7 +20,7 @@ These are **high-fidelity (hifi)** mockups. All colors, typography, spacing, bor
 
 | Page | HTML File | Entry Component | Description |
 |------|-----------|-----------------|-------------|
-| Homepage | `index.html` | `App` (app.jsx) | Main landing page with hero, about, product features, why us, use cases, process steps, CTA |
+| Homepage | `index.html` | `App` (app.jsx) | Main landing page with hero, about, product features, why us, use cases, process steps, scam advisory, CTA |
 | FAQ | `FAQ.html` | `FaqApp` (faq-page.jsx) | Accordion FAQ grouped by category |
 | Contact | `Contact.html` | `ContactApp` (contact-page.jsx) | Contact form + office details + map + "Before You Borrow" disclosure |
 | Calculator | `Calculator.html` | `CalculatorApp` (calculator-page.jsx) | Interactive loan calculator with 3 sliders |
@@ -71,8 +71,8 @@ These are **high-fidelity (hifi)** mockups. All colors, typography, spacing, bor
 
 **Hero content:**
 - Overline: "Licensed Moneylender · Licence No. 91/2025"
-- H1: "Personal Loans *Backed by Property.*" (italic is styled `font-style: normal` — it's a visual emphasis, not actual italic)
-- Body: "Need personal financing but don't fit the bank's mould? TBS Union provides property-backed personal loans: with same-day assessment and transparent terms."
+- H1: "Personal Loans *Backed by Property.*" (italic emphasis)
+- Body: "Need personal financing but rejected by banks? TBS Union provides property-backed personal loans with same-day assessment and transparent terms."
 - Primary CTA: "Call 6345 8801" (phone link)
 - Secondary CTA: "Send an Enquiry" (links to Contact.html)
 - Trust badges: 3 items with icons in 32×32 rounded squares
@@ -106,23 +106,23 @@ These are **high-fidelity (hifi)** mockups. All colors, typography, spacing, bor
 
 #### Use Cases Section
 - Dark gradient background `linear-gradient(160deg, #031a10 0%, #005a3d 100%)`
-- 3-column grid of 6 cards with translucent backgrounds (`rgba(255,255,255,0.05)`)
+- 3-column grid of 5 cards with translucent backgrounds (`rgba(255,255,255,0.05)`)
 - Icons in `rgba(185,228,212,0.12)` boxes, pale green icon color
-- Cards: Debt Consolidation, Home Renovations, Bridging Income Gap, Education, Time-Sensitive Needs, Unlocking Property Equity
+- Cards: Debt Consolidation, Home Renovations, Bridging an Income Gap, Time-Sensitive Needs, Unlocking Property Equity
 
 #### Process Section
 - Beige background
 - Centered header + 3-column grid with dashed connecting line
 - Each step: 80×80 circle with number, H4 title, paragraph
-- Steps: "15-Minute Assessment" → "Loan Structuring" → "Approval & Disbursement"
+- Steps: "Online Assessment" → "Loan Structuring" → "Approval & Disbursement"
 
 #### Scam Advisory Section
 - White background, 1px top border
 - Max-width 900px inner container
 - Header: red warning badge "Scam Advisory" + H3 "Protect Yourself from Fraudulent Websites" + description
 - 2-column grid (`0.75fr / 1.25fr`), 36px gap
-- Left: Fraudulent website callout — red label, URL box with X icon + `https://tbsunion-sg.com/`, screenshot image (max-width 350px on container) with greyscale filter + red "FAKE" stamp overlay
-- Right: "Remember" label + 3 bullet points (official website, no unsolicited contact, never ask for pre-disbursement payment) + MinLaw verification link
+- Left: Fraudulent website callout — red label, URL box with X icon + `https://tbsunion-sg.com/`, screenshot image (max-width 350px on container `.scam-advisory__screenshot`) with greyscale filter + red "FAKE" stamp overlay
+- Right: "Remember" label + 3 bullet points (official website is tbsunion.com.sg, no unsolicited contact, never ask for pre-disbursement payment) + MinLaw verification link
 - Anchor target `#scam-advisory` with `scroll-padding-top: 72px` on `html` to offset for the sticky nav
 
 #### CTA Banner
@@ -138,7 +138,7 @@ These are **high-fidelity (hifi)** mockups. All colors, typography, spacing, bor
 **Body:** Max-width 780px centered. 4 FAQ categories:
 - About TBS Union (3 questions)
 - Borrowing & Eligibility (7 questions)
-- Process & Repayment (4 questions)
+- Process & Repayment (3 questions)
 - Safety & Regulation (3 questions)
 
 **Accordion behaviour:**
@@ -161,7 +161,7 @@ These are **high-fidelity (hifi)** mockups. All colors, typography, spacing, bor
 **Left column — Contact Details:**
 - H2 "Get in Touch" + subtitle
 - 4 detail cards (phone, office address, operating hours, licence) each with 44×44 pale green icon box
-- Operating Hours: "Monday – Friday: By Appointment Only" with a pale green eyebrow-style "WhatsApp Us" pill tag (uppercase, 10px font, `#b9e4d4` bg) linking to `https://api.whatsapp.com/send/?phone=6588375425&text=Hello%21+I%27d+like+to+know+more+about+personal+loans`. Saturday, Sunday & Public Holidays: Closed.
+- Operating Hours: "Monday – Friday: By Appointment Only" with a pale green eyebrow-style "WhatsApp Us" pill tag (uppercase, 10px font, `#b9e4d4` bg, `border-radius: var(--radius-sm)`, padding 4px 11px) linking to `https://api.whatsapp.com/send/?phone=6588375425&text=Hello%21+I%27d+like+to+know+more+about+personal+loans`. Second line: "Saturday, Sunday & Public Holidays: Closed".
 - Google Maps embed (240px height) at bottom — pointed at Automobile Megamart, 61 Ubi Ave 2, Singapore 408898
 
 **Right column — Enquiry Form:**
@@ -188,20 +188,20 @@ These are **high-fidelity (hifi)** mockups. All colors, typography, spacing, bor
 
 **Left — Calculator Panel:**
 - White card, 1px border, 40px padding
-- 3 range sliders: Loan Amount (S$1K–S$200K, step S$1K), Loan Term (1–24 months), Interest Rate (3–6% p.a., step 0.1%)
+- 3 range sliders: Loan Amount (S$1K–S$5M, non-linear steps), Loan Term (1–24 months), Interest Rate (0.5–4% per month, step 0.1%)
 - Each slider: label on left, current value (emerald serif, 22px) on right
 - Custom slider styling: 6px track, emerald fill, 22px white thumb with emerald border
 - Disclaimer text below
 
 **Right — Results Panel:**
 - Beige bg, sticky (`top: 96px`), 36px padding
-- 3 result cards: Monthly Repayment (emerald bg, white text — primary), Total Interest, Total Payable
+- 3 result cards: Monthly Repayment (emerald bg, white text — primary), Monthly Interest, Monthly Principal
 - Breakdown bar: horizontal stacked bar (emerald = principal, pale green = interest) with legend
 - CTA button: "Get a free assessment"
 
-**Calculator FAQ section** below (beige bg, 4 accordion items)
+**Calculator FAQ section** below (beige bg, 3 accordion items)
 
-**Calculation method:** Simple interest: `totalInterest = amount × (rate/100) × (months/12)`, `monthlyRepayment = totalPayable / months`
+**Calculation method:** Simple interest per month: `monthlyInterest = amount × (ratePerMonth / 100)`, `totalInterest = monthlyInterest × months`, `monthlyRepayment = totalPayable / months`
 
 ---
 
@@ -217,7 +217,7 @@ These are **high-fidelity (hifi)** mockups. All colors, typography, spacing, bor
 - Filter pills: All, Borrowing basics, Property-backed loans, Managing repayments
 - Active filter: emerald bg, white text
 - 3-column grid of article cards
-- Card: image (180px height, zoom on hover), category label, H4 title, excerpt (3-line clamp), read time
+- Card: image (zoom on hover), category label, H4 title, excerpt (3-line clamp), read time
 - 9 articles total
 
 **Blog CTA:** Beige box with "Have a question about borrowing?" + "Talk to our team" button
@@ -308,10 +308,10 @@ Three tweakable values stored in `TWEAK_DEFAULTS`:
 - No actual form submission — wire to your API
 
 ### Calculator
-- `amount` (number, default 30000)
+- `amountIdx` (number) — index into non-linear `LOAN_STEPS` array
 - `termMonths` (number, default 12)
-- `ratePerAnnum` (number, default 4)
-- All derived values (monthlyRepayment, totalInterest, totalPayable) are computed inline
+- `ratePerMonth` (number, default 1.5)
+- All derived values (monthlyRepayment, monthlyInterest, monthlyPrincipal, totalInterest, totalPayable) are computed inline
 
 ### Blog
 - `filter` (string) — active category filter, default `"All"`
@@ -331,7 +331,7 @@ Three tweakable values stored in `TWEAK_DEFAULTS`:
 | Emerald (Primary) | `#005a3d` | Brand headings, buttons, CTAs, links, icons |
 | Emerald Hover | `#004d33` | Button hover state |
 | Bottle Green | `#063222` | Nav solid bg, footer, dark sections |
-| Pale Green | `#b9e4d4` | Icon backgrounds, accent, bubble icons |
+| Pale Green | `#b9e4d4` | Icon backgrounds, accent, bubble icons, WhatsApp tag bg |
 | Beige | `#F5F0E8` | Section backgrounds, form wrapper, stat cards |
 | Beige Dark | `#ede7da` | Hover state on flat cards |
 | Yellow (Accent) | `#E3EF26` | Nav CTA, accent button variant |
@@ -355,6 +355,7 @@ Three tweakable values stored in `TWEAK_DEFAULTS`:
 | Small/caption | Inter | 13–14px | 400–500 | 1.45–1.65 | 0 |
 | Button | Inter | 14px (default), 15px (lg) | 600 | 1.2 | 0 |
 | Nav link | Inter | 14px | 500 | — | 0 |
+| WhatsApp tag | Inter | 10px | 600 | 1.2 | 0.08em, uppercase |
 
 ### Spacing
 | Name | Value | Usage |
@@ -372,7 +373,7 @@ Three tweakable values stored in `TWEAK_DEFAULTS`:
 ### Border Radius
 | Token | Value | Usage |
 |-------|-------|-------|
-| `--radius-sm` | 8px | Inputs, small cards, dropdown items |
+| `--radius-sm` | 8px | Inputs, small cards, dropdown items, WhatsApp tag |
 | `--radius-md` | 12px | FAQ items, result cards |
 | `--radius-lg` | 16px | Feature cards, stat cards, form wrapper |
 | `--radius-xl` | 24px | Hero image frame |
@@ -404,7 +405,7 @@ Three tweakable values stored in `TWEAK_DEFAULTS`:
 No icon library is used. All icons are **inline SVGs** drawn at 24×24 viewBox with **2px stroke** (some at 1.6px in dropdown), `strokeLinecap="round"`, `strokeLinejoin="round"`. All are defined as React components in `chrome.jsx` and `sections.jsx`.
 
 Icon set used:
-- Phone, Shield, Home, Clock, Users, Dollar, Activity, Check, Send, ChevronDown, Plus, Layers, Tool, Briefcase, Book, Zap, Key, MapPin, ExternalLink, ChevronRight, Calculator (nav), Book (nav)
+- Phone, Shield, Home, Clock, Users, Dollar, Activity, Check, Send, ChevronDown, Plus, Layers, Tool, Briefcase, Book, Zap, Key, MapPin, ExternalLink, ChevronRight, AlertTriangle, Calculator (nav), Book (nav)
 
 If migrating, **Lucide** is the closest external match (same stroke style).
 
@@ -432,6 +433,11 @@ If migrating, **Lucide** is the closest external match (same stroke style).
 | `assets/photography/aerial-singapore-landscape.jpg` | Bold hero variant background |
 | `assets/blog/*.jpg` | 9 article thumbnail images |
 
+### Scam Advisory
+| File | Usage |
+|------|-------|
+| `assets/scam/fake-site-screenshot.jpg` | Screenshot of fraudulent website (displayed in scam advisory section) |
+
 ---
 
 ## Files
@@ -455,7 +461,7 @@ design_handoff_tbs_union_website/
 ├── components/
 │   ├── chrome.jsx                         ← Nav, Footer, ComplianceStrip, icons
 │   ├── hero.jsx                           ← Hero section + floating bubbles
-│   ├── sections.jsx                       ← Homepage body sections
+│   ├── sections.jsx                       ← Homepage body sections + scam advisory
 │   ├── app.jsx                            ← Homepage root component
 │   ├── faq-page.jsx                       ← FAQ page component
 │   ├── contact-page.jsx                   ← Contact page component
@@ -464,8 +470,8 @@ design_handoff_tbs_union_website/
 │   ├── article-page.jsx                   ← Article detail component
 │   └── article-data.jsx                   ← Article content data (9 articles)
 ├── styles/
-│   ├── homepage.css                       ← Tokens + homepage styles (872 lines)
-│   └── pages.css                          ← Inner page styles (878 lines)
+│   ├── homepage.css                       ← Tokens + homepage styles
+│   └── pages.css                          ← Inner page styles
 ├── design-system/
 │   └── fonts/                             ← Vollkorn + Inter variable fonts
 └── tweaks-panel.jsx                       ← Design-time tweaks panel (not for production)

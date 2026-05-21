@@ -1,0 +1,183 @@
+/* Tembusu — UI Components
+   Buttons, inputs, cards, badges, status boxes.
+   Depends on colors_and_type.css for tokens. */
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--tbs-space-2);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: var(--ls-normal);
+  padding: 10px 20px;
+  border-radius: var(--tbs-radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--dur-base) var(--ease-standard);
+  white-space: nowrap;
+  text-decoration: none;
+  line-height: 1.2;
+}
+.btn:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+.btn:active { transform: scale(0.97); }
+.btn:disabled, .btn[aria-disabled="true"] { opacity: 0.5; pointer-events: none; }
+
+.btn-primary {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+}
+.btn-primary:hover { background: var(--brand-hover); border-color: var(--brand-hover); text-decoration: none; }
+
+.btn-outline {
+  background: transparent;
+  color: var(--brand);
+  border-color: var(--brand);
+}
+.btn-outline:hover { background: rgba(0, 90, 61, 0.08); text-decoration: none; }
+
+.btn-inverted {
+  background: #fff;
+  color: var(--brand);
+  border-color: #fff;
+}
+.btn-inverted:hover { background: rgba(255,255,255,0.88); text-decoration: none; }
+
+.btn-secondary-outline {
+  background: transparent;
+  color: var(--fg-1);
+  border-color: var(--fg-1);
+}
+.btn-secondary-outline:hover { background: rgba(46,46,46,0.06); text-decoration: none; }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--brand);
+  border-color: transparent;
+  padding: 10px 16px;
+}
+.btn-ghost:hover { background: rgba(0,90,61,0.08); text-decoration: none; }
+
+.btn-sm { padding: 6px 14px; font-size: 13px; }
+.btn-lg { padding: 14px 28px; font-size: 15px; }
+.btn-block { width: 100%; }
+
+/* Social buttons (only for the platform they name) */
+.btn-whatsapp  { background: var(--tembusu-whatsapp);  color:#fff; border-color: var(--tembusu-whatsapp); }
+.btn-messenger { background: var(--tembusu-messenger); color:#fff; border-color: var(--tembusu-messenger); }
+.btn-instagram { background: var(--tembusu-instagram); color:#fff; border-color: var(--tembusu-instagram); }
+.btn-linkedin  { background: var(--tembusu-linkedin);  color:#fff; border-color: var(--tembusu-linkedin); }
+
+/* ---------- Form fields ---------- */
+.tbs-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.tbs-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg-1);
+}
+.tbs-input,
+.tbs-select,
+.tbs-textarea {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--fg-1);
+  padding: 10px 12px;
+  border: 1px solid var(--border-2);
+  border-radius: var(--tbs-radius-sm);
+  background: #fff;
+  transition: border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);
+  width: 100%;
+  box-sizing: border-box;
+}
+.tbs-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232E2E2E' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px 16px;
+  padding-right: 40px;
+}
+.tbs-input::placeholder, .tbs-textarea::placeholder { color: #9aa1a3; }
+.tbs-input:focus,
+.tbs-select:focus,
+.tbs-textarea:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(0,90,61,0.12);
+}
+.tbs-hint { font-size: 12px; color: var(--fg-2); }
+.tbs-error-text { font-size: 12px; color: var(--tembusu-error-text); }
+
+/* ---------- Cards ---------- */
+.tbs-card {
+  background: #fff;
+  border-radius: var(--tbs-radius-md);
+  box-shadow: var(--tbs-shadow-1);
+  padding: var(--tbs-space-4);
+  transition: box-shadow var(--dur-base) var(--ease-standard), transform var(--dur-base) var(--ease-standard);
+}
+.tbs-card-interactive:hover { box-shadow: var(--tbs-shadow-2); transform: translateY(-2px); }
+.tbs-card-feature {
+  border-top: 3px solid var(--brand);
+}
+
+/* ---------- Badges / Tags ---------- */
+.tbs-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: var(--tbs-radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--tembusu-info-bg);
+  color: var(--brand);
+  border: 1px solid var(--tembusu-info-border);
+}
+.tbs-badge-yellow { background: #fffbcc; color: #6b6300; border-color: #f1e87a; }
+.tbs-badge-charcoal { background: #f1f1f1; color: var(--fg-1); border-color: #d6d6d6; }
+.tbs-badge-success { background: var(--tembusu-success-bg); color: var(--tembusu-success-text); border-color: var(--tembusu-success-border); }
+.tbs-badge-warning { background: var(--tembusu-warning-bg); color: var(--tembusu-warning-text); border-color: var(--tembusu-warning-border); }
+.tbs-badge-error   { background: var(--tembusu-error-bg);   color: var(--tembusu-error-text);   border-color: var(--tembusu-error-border); }
+
+/* Uppercase label tag — used in nav and section eyebrows */
+.tbs-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-loose);
+  color: var(--brand);
+  padding: 4px 10px;
+  background: var(--tembusu-info-bg);
+  border-radius: var(--tbs-radius-sm);
+}
+
+/* ---------- Status boxes ---------- */
+.tbs-status-box {
+  border-radius: 0 var(--tbs-radius-md) var(--tbs-radius-md) 0;
+  padding: var(--tbs-space-3);
+  font-size: 14px;
+  line-height: var(--lh-normal);
+}
+.tbs-status-box .tbs-status-title { font-weight: 600; margin-bottom: 2px; }
+.info-box    { background: var(--tembusu-info-bg);    border-left: 4px solid var(--tembusu-info-text);    color: var(--tembusu-info-text); }
+.warn-box    { background: var(--tembusu-warning-bg); border-left: 4px solid var(--tembusu-warning-text); color: var(--tembusu-warning-text); }
+.error-box   { background: var(--tembusu-error-bg);   border-left: 4px solid var(--tembusu-error-text);   color: var(--tembusu-error-text); }
+.success-box { background: var(--tembusu-success-bg); border-left: 4px solid var(--tembusu-success-text); color: var(--tembusu-success-text); }
+
+/* ---------- Section banding ---------- */
+.tbs-band-light  { background: var(--bg-1); color: var(--fg-1); }
+.tbs-band-beige  { background: var(--bg-2); color: var(--fg-1); }
+.tbs-band-pale   { background: var(--brand-soft); color: var(--fg-1); }
+.tbs-band-emerald { background: var(--brand); color: var(--on-dark-1); }
+.tbs-band-bottle  { background: var(--bg-dark); color: var(--on-dark-1); }
+.tbs-band-gradient { background: var(--tembusu-gradient-1); color: var(--on-dark-1); }

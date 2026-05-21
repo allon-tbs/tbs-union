@@ -118,7 +118,7 @@ function FaqPageContent() {
             <h2 className="faq-section__title">Process &amp; Repayment</h2>
 
             <FaqItem question="How fast can I get the money?">
-              <p>Once your loan is approved, funds can be <strong>disbursed within 24 hours</strong>. Our assessment is typically completed within the same business day, provided all required documents are submitted.</p>
+              <p>Once your loan is approved, funds can be <strong>disbursed within the week</strong>. Our assessment is typically completed within the same business day, provided all required documents are submitted.</p>
               <p>Assessment and disbursement timelines are subject to completeness of documentation and internal approval processes.</p>
             </FaqItem>
 
@@ -127,9 +127,6 @@ function FaqPageContent() {
               <p>If you’re facing difficulties, we encourage you to contact us as soon as possible so we can discuss your options. Borrow only what you need and are able to repay.</p>
             </FaqItem>
 
-            <FaqItem question="Can I repay my loan early?">
-              <p>Early repayment terms are set out in your loan contract. Speak to our team about the specific early repayment options available for your loan. We disclose all terms — including any early repayment conditions — in your offer letter before you sign.</p>
-            </FaqItem>
 
             <FaqItem question="Will applying affect my credit score?">
               <p>Simply enquiring or applying for a loan does not impact your credit score. However, defaulting or making late repayments on any loan will affect your credit record. We provide clear repayment schedules to help you manage your loan responsibly.</p>

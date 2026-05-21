@@ -12,6 +12,7 @@ function App() {
       <WhySection tweaks={tweaks} />
       <UseCasesSection />
       <ProcessSection />
+      <ScamAdvisorySection />
       <CtaBanner tweaks={tweaks} />
       <ComplianceStrip />
       <Footer />

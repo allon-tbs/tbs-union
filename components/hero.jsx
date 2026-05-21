@@ -111,8 +111,8 @@ function HeroSection({ tweaks }) {
             <em>Backed by Property.</em>
           </h1>
           <p className="hero__desc">
-            Need personal financing but don't fit the bank's mould? TBS Union provides
-            property-backed personal loans: with same-day assessment and transparent terms.
+            Need personal financing but rejected by banks? TBS Union provides
+            property-backed personal loans with same-day assessment and transparent terms.
           </p>
           <div className="hero__ctas">
             <a href="tel:+6563458801" className={`btn btn-lg ${primaryCls}`}>

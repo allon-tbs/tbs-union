@@ -1,20 +1,40 @@
 /* calculator-page.jsx — Personal Loan Calculator */
 
-function LoanCalculator() {
-  const [amount, setAmount] = React.useState(30000);
-  const [termMonths, setTermMonths] = React.useState(12);
-  const [ratePerAnnum, setRatePerAnnum] = React.useState(4);
+/* Build non-linear loan amount stops */
+const LOAN_STEPS = (() => {
+  const s = [1000];
+  for (let v = 2000; v <= 100000; v += 2000) s.push(v);    // $2K–$100K in $2K steps
+  for (let v = 120000; v <= 500000; v += 20000) s.push(v);  // $120K–$500K in $20K steps
+  for (let v = 600000; v <= 5000000; v += 100000) s.push(v); // $600K–$5M in $100K steps
+  return s;
+})();
+const LOAN_MAX_IDX = LOAN_STEPS.length - 1;
 
-  const monthlyRate = ratePerAnnum / 12 / 100;
-  const totalInterest = amount * (ratePerAnnum / 100) * (termMonths / 12);
+function amountToIdx(amt) {
+  let closest = 0;
+  for (let i = 1; i < LOAN_STEPS.length; i++) {
+    if (Math.abs(LOAN_STEPS[i] - amt) < Math.abs(LOAN_STEPS[closest] - amt)) closest = i;
+  }
+  return closest;
+}
+
+function LoanCalculator() {
+  const [amountIdx, setAmountIdx] = React.useState(() => amountToIdx(30000));
+  const [termMonths, setTermMonths] = React.useState(12);
+  const [ratePerMonth, setRatePerMonth] = React.useState(1.5);
+
+  const amount = LOAN_STEPS[amountIdx];
+  const monthlyInterest = amount * (ratePerMonth / 100);
+  const totalInterest = monthlyInterest * termMonths;
   const totalPayable = amount + totalInterest;
   const monthlyRepayment = totalPayable / termMonths;
+  const monthlyPrincipal = amount / termMonths;
 
   const formatCurrency = (n) => 'S$' + n.toLocaleString('en-SG', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
-  const amountPct = ((amount - 1000) / (200000 - 1000)) * 100;
+  const amountPct = (amountIdx / LOAN_MAX_IDX) * 100;
   const termPct = ((termMonths - 1) / (24 - 1)) * 100;
-  const ratePct = ((ratePerAnnum - 3) / (6 - 3)) * 100;
+  const ratePct = ((ratePerMonth - 0.5) / (4 - 0.5)) * 100;
 
   return (
     <section className="calc-section">
@@ -28,17 +48,17 @@ function LoanCalculator() {
               </div>
               <input
                 type="range"
-                min="1000"
-                max="200000"
-                step="1000"
-                value={amount}
-                onChange={e => setAmount(Number(e.target.value))}
+                min="0"
+                max={LOAN_MAX_IDX}
+                step="1"
+                value={amountIdx}
+                onChange={e => setAmountIdx(Number(e.target.value))}
                 className="calc-slider"
                 style={{ '--pct': amountPct + '%' }}
               />
               <div className="calc-range-labels">
                 <span>S$1,000</span>
-                <span>S$200,000</span>
+                <span>S$5,000,000</span>
               </div>
             </div>
 
@@ -65,22 +85,22 @@ function LoanCalculator() {
 
             <div className="calc-group">
               <div className="calc-group__header">
-                <label>Interest rate (per annum)</label>
-                <span className="calc-group__value">{ratePerAnnum.toFixed(1)}%</span>
+                <label>Interest rate (per month)</label>
+                <span className="calc-group__value">{ratePerMonth.toFixed(1)}%</span>
               </div>
               <input
                 type="range"
-                min="3"
-                max="6"
+                min="0.5"
+                max="4"
                 step="0.1"
-                value={ratePerAnnum}
-                onChange={e => setRatePerAnnum(Number(e.target.value))}
+                value={ratePerMonth}
+                onChange={e => setRatePerMonth(Number(e.target.value))}
                 className="calc-slider"
                 style={{ '--pct': ratePct + '%' }}
               />
               <div className="calc-range-labels">
-                <span>3.0%</span>
-                <span>6.0%</span>
+                <span>0.5%</span>
+                <span>4.0%</span>
               </div>
             </div>
 
@@ -97,12 +117,12 @@ function LoanCalculator() {
                 <span className="calc-result-card__value">{formatCurrency(monthlyRepayment)}</span>
               </div>
               <div className="calc-result-card">
-                <span className="calc-result-card__label">Total interest</span>
-                <span className="calc-result-card__value">{formatCurrency(totalInterest)}</span>
+                <span className="calc-result-card__label">Monthly interest</span>
+                <span className="calc-result-card__value">{formatCurrency(monthlyInterest)}</span>
               </div>
               <div className="calc-result-card">
-                <span className="calc-result-card__label">Total payable</span>
-                <span className="calc-result-card__value">{formatCurrency(totalPayable)}</span>
+                <span className="calc-result-card__label">Monthly principal</span>
+                <span className="calc-result-card__value">{formatCurrency(monthlyPrincipal)}</span>
               </div>
             </div>
 
@@ -163,10 +183,7 @@ function CalculatorFaq() {
       q: 'What interest rates does TBS Union charge?',
       a: 'Rates are determined after a full assessment of your profile and property collateral. Because our loans are property-backed, we can typically offer more competitive rates than unsecured personal loans. Contact us for an indicative quote.',
     },
-    {
-      q: 'Can I repay my loan early?',
-      a: 'Early repayment terms are set out in your loan agreement. Speak to our team to understand the specific terms that would apply to your loan.',
-    },
+
   ];
 
   const [openIdx, setOpenIdx] = React.useState(null);

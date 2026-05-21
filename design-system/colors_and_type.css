@@ -1,0 +1,213 @@
+/* =============================================================
+   Tembusu Financial Services — Colors & Type
+   The single source of truth for design tokens.
+   Import this CSS first; everything else references these vars.
+   ============================================================= */
+
+/* ---------- Self-hosted brand fonts ---------- */
+@font-face {
+  font-family: 'Vollkorn';
+  src: url('fonts/Vollkorn-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Vollkorn';
+  src: url('fonts/Vollkorn-Italic-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 400 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter-VariableFont_opsz_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter-Italic-VariableFont_opsz_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Outfit';
+  src: url('fonts/Outfit-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ---------- Brand Colors ---------- */
+  --tembusu-emerald: #005a3d;       /* Primary brand color */
+  --tembusu-pale-green: #b9e4d4;    /* Soft secondary */
+  --tembusu-bottle-green: #063222;  /* Deep companion / footer */
+  --tembusu-yellow: #E3EF26;        /* Energy accent — digital only */
+  --tembusu-charcoal: #2E2E2E;      /* Primary text on light */
+  --tembusu-white: #FFFFFF;
+  --tembusu-beige: #F5F0E8;         /* Subtle background */
+
+  /* Aliases used across components */
+  --fg-1: var(--tembusu-charcoal);
+  --fg-2: #5b5b5b;
+  --fg-3: #8a8a8a;
+  --bg-1: var(--tembusu-white);
+  --bg-2: var(--tembusu-beige);
+  --bg-dark: var(--tembusu-bottle-green);
+  --brand: var(--tembusu-emerald);
+  --brand-hover: #004d33;
+  --brand-soft: var(--tembusu-pale-green);
+  --border-1: #e3e6e4;
+  --border-2: #d6dbde;
+
+  /* ---------- Text on Dark Surfaces (3-tier opacity) ---------- */
+  --on-dark-1: #FFFFFF;
+  --on-dark-2: rgba(255, 255, 255, 0.70);
+  --on-dark-3: rgba(255, 255, 255, 0.45);
+
+  /* ---------- Semantic / Status ---------- */
+  --tembusu-success-text: #166534;
+  --tembusu-success-bg:   #f0fdf4;
+  --tembusu-success-border: #bbf7d0;
+  --tembusu-warning-text: #78350f;
+  --tembusu-warning-bg:   #fffbeb;
+  --tembusu-warning-border: #fde68a;
+  --tembusu-error-text:   #991b1b;
+  --tembusu-error-bg:     #fef2f2;
+  --tembusu-error-border: #fecaca;
+  --tembusu-info-text:    #005a3d;
+  --tembusu-info-bg:      #e6f4ee;
+  --tembusu-info-border:  #b9e4d4;
+
+  /* ---------- Social brand colors (use ONLY for the platform) ---------- */
+  --tembusu-whatsapp:  #009948;
+  --tembusu-messenger: #0084FF;
+  --tembusu-instagram: #DD2A7B;
+  --tembusu-linkedin:  #0077b5;
+
+  /* ---------- Gradients (digital only) ---------- */
+  --tembusu-gradient-1: linear-gradient(135deg, #063222, #005a3d);
+  --tembusu-gradient-2: linear-gradient(135deg, #e3ef26, #f6ff6c);
+  --tembusu-photo-overlay: linear-gradient(180deg, rgba(6,50,34,0.10) 0%, rgba(6,50,34,0.72) 100%);
+
+  /* ---------- Spacing (6-step) ---------- */
+  --tbs-space-1: 4px;
+  --tbs-space-2: 8px;
+  --tbs-space-3: 16px;   /* rhythm constant */
+  --tbs-space-4: 24px;
+  --tbs-space-5: 32px;
+  --tbs-space-6: 48px;
+
+  --tbs-gutter-mobile:  16px;
+  --tbs-gutter-tablet:  24px;
+  --tbs-gutter-desktop: 32px;
+
+  /* ---------- Radius ---------- */
+  --tbs-radius-sm:     4px;
+  --tbs-radius-md:     8px;
+  --tbs-radius-lg:     12px;
+  --tbs-radius-pill:   50px;
+  --tbs-radius-circle: 50%;
+
+  /* ---------- Elevation ---------- */
+  --tbs-shadow-1: 0 0 0.5px rgba(0,0,0,0.14), 0 1px 1px rgba(0,0,0,0.24);
+  --tbs-shadow-2: 0 1px 3px rgba(0,0,0,0.1), 0 2px 2px rgba(0,0,0,0.06), 0 0 2px rgba(0,0,0,0.07);
+  --tbs-shadow-3: 0 0 6px rgba(0,0,0,0.24);
+
+  /* ---------- Type families ---------- */
+  --font-serif: 'Vollkorn', Georgia, 'Times New Roman', serif;
+  --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+
+  /* ---------- Type scale (digital, px) ----------
+     Spec is in pt for print parity; we provide px values for screens. */
+  --fs-display: 48px;
+  --fs-h1:      32px;   /* 32pt spec */
+  --fs-h2:      24px;   /* 24pt spec */
+  --fs-h3:      18px;   /* 18pt spec */
+  --fs-body:    16px;   /* digital body (spec 12pt for print) */
+  --fs-small:   14px;
+  --fs-caption: 12px;
+  --fs-overline:11px;
+
+  /* ---------- Line-height tokens ---------- */
+  --lh-compact: 1.2;
+  --lh-normal:  1.5;
+  --lh-relaxed: 1.7;
+
+  /* ---------- Letter-spacing tokens ---------- */
+  --ls-none:   0;
+  --ls-normal: -0.01em;
+  --ls-loose:  0.08em;
+
+  /* ---------- Motion ---------- */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 320ms;
+}
+
+/* ---------- Base elements ----------
+   Semantic defaults so unstyled markup looks correct.
+   ------------------------------------------------------------- */
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--ls-normal);
+  color: var(--fg-1);
+  background: var(--bg-1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  color: var(--brand);
+  line-height: var(--lh-compact);
+  letter-spacing: var(--ls-none);
+  font-weight: 600;
+  margin: 0 0 var(--tbs-space-3);
+}
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-body); font-weight: 600; }
+
+p { margin: 0 0 var(--tbs-space-3); }
+a { color: var(--brand); text-decoration: none; transition: color var(--dur-base) var(--ease-standard); }
+a:hover { text-decoration: underline; }
+small { font-size: var(--fs-small); color: var(--fg-2); }
+
+/* Uppercase overline / eyebrow labels (used widely in nav, tags) */
+.tbs-overline {
+  font-family: var(--font-sans);
+  font-size: var(--fs-overline);
+  font-weight: 600;
+  letter-spacing: var(--ls-loose);
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+/* Display heading — bigger than h1, used for hero zones */
+.tbs-display {
+  font-family: var(--font-serif);
+  font-size: var(--fs-display);
+  line-height: var(--lh-compact);
+  letter-spacing: var(--ls-none);
+  color: var(--brand);
+  font-weight: 600;
+}
+
+/* Dark surface helper */
+.tbs-on-dark { color: var(--on-dark-1); }
+.tbs-on-dark h1, .tbs-on-dark h2, .tbs-on-dark h3 { color: var(--on-dark-1); }
+.tbs-on-dark p { color: var(--on-dark-2); }
+.tbs-on-dark .tbs-overline { color: var(--on-dark-2); }
+.tbs-on-dark small { color: var(--on-dark-3); }
