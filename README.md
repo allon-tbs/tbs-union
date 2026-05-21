@@ -20,7 +20,7 @@ These are **high-fidelity (hifi)** mockups. All colors, typography, spacing, bor
 
 | Page | HTML File | Entry Component | Description |
 |------|-----------|-----------------|-------------|
-| Homepage | `TBS Union Homepage.html` | `App` (app.jsx) | Main landing page with hero, about, product features, why us, use cases, process steps, CTA |
+| Homepage | `index.html` | `App` (app.jsx) | Main landing page with hero, about, product features, why us, use cases, process steps, CTA |
 | FAQ | `FAQ.html` | `FaqApp` (faq-page.jsx) | Accordion FAQ grouped by category |
 | Contact | `Contact.html` | `ContactApp` (contact-page.jsx) | Contact form + office details + map + "Before You Borrow" disclosure |
 | Calculator | `Calculator.html` | `CalculatorApp` (calculator-page.jsx) | Interactive loan calculator with 3 sliders |
@@ -441,7 +441,7 @@ All source files for the prototype are included in this handoff folder:
 ```
 design_handoff_tbs_union_website/
 ├── README.md                              ← This file
-├── TBS Union Homepage.html                ← Homepage entry point
+├── index.html                             ← Homepage entry point
 ├── FAQ.html                               ← FAQ page
 ├── Contact.html                           ← Contact page
 ├── Calculator.html                        ← Calculator page

@@ -78,7 +78,7 @@ function Nav({ tweaks, page }) {
     heroIsLight && !scrolled ? 'nav--transparent-light' : '',
   ].filter(Boolean).join(' ');
 
-  const hp = isHome ? '' : 'TBS Union Homepage.html';
+  const hp = isHome ? '' : 'index.html';
 
   const resourcesDropdown = {
     tools: [
@@ -93,7 +93,7 @@ function Nav({ tweaks, page }) {
     <React.Fragment>
       <nav className={navCls}>
         <div className="container nav__inner">
-          <a href={isHome ? '/' : 'TBS Union Homepage.html'} className="nav__logo">
+          <a href="index.html" className="nav__logo">
             <img
               src={(scrolled || !isHome || !heroIsLight) ? 'assets/logos/TBSU-Logo-White.svg' : 'assets/logos/TBSU-Logo.svg'}
               alt="TBS Union"
@@ -202,7 +202,7 @@ function Footer() {
           <div className="footer__col">
             <h4>Quick Links</h4>
             <ul>
-              <li><a href="TBS Union Homepage.html#product">Secured Personal Loan</a></li>
+              <li><a href="index.html#product">Secured Personal Loan</a></li>
               <li><a href="Calculator.html">Loan Calculator</a></li>
               <li><a href="Blog.html">Guides & Tips</a></li>
               <li><a href="FAQ.html">FAQ</a></li>
