@@ -93,7 +93,7 @@ function Nav({ tweaks, page }) {
     <React.Fragment>
       <nav className={navCls}>
         <div className="container nav__inner">
-          <a href="index.html" className="nav__logo">
+          <a href={isHome ? '/' : 'index.html'} className="nav__logo">
             <img
               src={(scrolled || !isHome || !heroIsLight) ? 'assets/logos/TBSU-Logo-White.svg' : 'assets/logos/TBSU-Logo.svg'}
               alt="TBS Union"
